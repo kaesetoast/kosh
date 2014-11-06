@@ -4,7 +4,7 @@ var app = angular.module('kosh', ['firebase', 'ngRoute']);
 
 app.config(function($routeProvider) {
   $routeProvider
-    .when('/', {
+    .when('/tickets', {
       templateUrl: 'templates/tickets.html',
       controller: 'TicketsController'
     })
@@ -13,7 +13,7 @@ app.config(function($routeProvider) {
       controller: 'TicketController'
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/tickets'
     });
 });
 
