@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row" ng-controller="TicketsController">
   <div class="col-sm-6 col-md-4">
-    <form ng-submit="addItem()">
+    <form ng-submit="addTicket()">
       <div class="form-group">
         <label for="title">Title</label>
         <input type="text" ng-model="newItem.title" name="title" class="form-control" id="title" placeholder="Enter title">
@@ -15,12 +15,12 @@
 </div>
 <hr>
 <div class="row">
-  <div class="col-sm-6 col-md-4" ng-repeat="(id, item) in items">
+  <div class="col-sm-6 col-md-4" ng-repeat="(id, ticket) in tickets">
     <div class="thumbnail">
       <div class="caption">
-        <h3>{{item.title}}</h3>
-        <p>{{item.description}}</p>
-        <button class="btn btn-danger" ng-click="removeItem(id)">Delete</button>
+        <h3><a href="/#/tickets/{{id}}">{{ticket.title}}</a></h3>
+        <p>{{ticket.description}}</p>
+        <button class="btn btn-danger" ng-click="removeTicket(id)">Delete</button>
       </div>
     </div>
   </div>

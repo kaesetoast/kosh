@@ -6,7 +6,11 @@ app.config(function($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'templates/tickets.html',
-      controller: 'MainCtrl'
+      controller: 'TicketsController'
+    })
+    .when('/tickets/:ticketId', {
+      templateUrl: 'templates/ticket.html',
+      controller: 'TicketController'
     })
     .otherwise({
       redirectTo: '/'

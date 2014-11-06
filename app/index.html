@@ -34,15 +34,7 @@
       </div>
     </nav>
 
-    <div class="container" ng-controller="MainCtrl">
-      <div ng-view></div>
-      <hr>
-
-      <div class="footer">
-        <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
-      </div>
-
-    </div>
+    <div class="container" ng-view></div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -68,7 +60,9 @@
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/kosh.js"></script>
-    <script src="scripts/main/main-ctrl.js"></script>
+    <script src="scripts/controller/ticket-controller.js"></script>
+    <script src="scripts/controller/tickets-controller.js"></script>
+    <script src="scripts/services/ticket-service.js"></script>
     <!-- inject:partials -->
     <!-- endinject -->
     <!-- endbuild -->
