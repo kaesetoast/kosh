@@ -7,8 +7,9 @@ app.controller('TicketsController', function ($scope, TicketService) {
   $scope.tickets = TicketService.get();
 
   $scope.addTicket = function() {
-    TicketService.add($scope.newItem);
-    $scope.newItem = {};
+    $scope.newTicket.created = new Date().toDateString();
+    TicketService.add($scope.newTicket);
+    $scope.newTicket = {};
   };
 
   $scope.removeTicket = function(id) {
