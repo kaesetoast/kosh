@@ -2,39 +2,37 @@
 
 'use strict';
 
-angular.module('kosh')
-  .controller('MainCtrl', function ($scope, TicketService) {
+app.controller('MainCtrl', function ($scope, TicketService) {
 
-    $scope.items = TicketService.getTickets();
+  $scope.items = TicketService.getTickets();
 
-    $scope.addItem = function() {
-      TicketService.addTicket($scope.newItem);
-      $scope.newItem = {};
-    };
+  $scope.addItem = function() {
+    TicketService.addTicket($scope.newItem);
+    $scope.newItem = {};
+  };
 
-    $scope.removeItem = function(id) {
-      TicketService.removeTicket(id);
-    };
+  $scope.removeItem = function(id) {
+    TicketService.removeTicket(id);
+  };
 
-  });
+});
 
-angular.module('kosh')
-  .factory('TicketService', function($firebase, FIREBASE_URI){
-    var exports = {},
-        ref = new Firebase(FIREBASE_URI + 'tickets'),
-        sync = $firebase(ref);
+app.factory('TicketService', function($firebase, FIREBASE_URI){
+  var exports = {},
+      ref = new Firebase(FIREBASE_URI + 'tickets'),
+      sync = $firebase(ref);
 
-    exports.getTickets = function() {
-      return sync.$asObject();
-    };
+  exports.getTickets = function() {
+    return sync.$asObject();
+  };
 
-    exports.removeTicket = function(id) {
-      sync.$remove(id);
-    };
+  exports.removeTicket = function(id) {
+    sync.$remove(id);
+  };
 
-    exports.addTicket = function(ticket) {
-      sync.$push(ticket);
-    };
+  exports.addTicket = function(ticket) {
+    sync.$push(ticket);
+  };
 
-    return exports;
-  });
+  return exports;
+});
