@@ -1,8 +1,8 @@
 /* global app */
 
-'use strict';
-
 app.controller('TicketsController', function ($scope, TicketService) {
+
+  'use strict';
 
   $scope.tickets = TicketService.get();
 

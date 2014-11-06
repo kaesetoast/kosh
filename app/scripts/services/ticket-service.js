@@ -1,3 +1,5 @@
+/* global app */
+
 app.factory('TicketService', function($firebase, FIREBASE_URI){
 
   'use strict';
