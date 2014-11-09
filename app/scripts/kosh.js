@@ -16,5 +16,3 @@ app.config(function($routeProvider) {
       redirectTo: '/tickets'
     });
 });
-
-app.constant('FIREBASE_URI', 'https://sizzling-inferno-7416.firebaseio.com/');

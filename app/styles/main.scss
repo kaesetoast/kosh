@@ -16,3 +16,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
     width: 50px;
   }
 }
+
+.navbar-brand {
+  background-image: url('../images/kosh.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 60px;
+}

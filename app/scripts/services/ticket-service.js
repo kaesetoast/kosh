@@ -1,15 +1,14 @@
 /* global app */
 
-app.factory('TicketService', function($firebase, FIREBASE_URI){
+app.factory('TicketService', function(StorageService){
 
   'use strict';
 
-  var exports = {},
-      ref = new Firebase(FIREBASE_URI + 'tickets'),
-      sync = $firebase(ref);
+  var exports = {};
 
   exports.get = function(id) {
-    return getSync(id).$asObject();
+    StorageService.loginWithGitHub();
+    // return getSync(id).$asObject();
   };
 
   exports.remove = function(id) {
@@ -22,9 +21,9 @@ app.factory('TicketService', function($firebase, FIREBASE_URI){
 
   function getSync(id) {
     if (typeof id === 'undefined') {
-      return sync;
+      // return sync;
     } else {
-      return $firebase(new Firebase(FIREBASE_URI + 'tickets/' + id));
+      // return $firebase(new Firebase(FIREBASE_URI + 'tickets/' + id));
     }
   }
 
