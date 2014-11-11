@@ -1,6 +1,6 @@
 /* global app */
 
-app.controller('LoginController', function ($scope, $location, AuthService, user) {
+app.controller('LoginController', function ($scope, $location, AuthService, user, UserService) {
 
   'use strict';
 
@@ -10,6 +10,9 @@ app.controller('LoginController', function ($scope, $location, AuthService, user
 
   $scope.login = function() {
     AuthService.login().then(function() {
+      if (!UserService.exists(AuthService.user.uid)) {
+        UserService.add(AuthService.user);
+      }
       $location.path('#/tickets');
     });
   };

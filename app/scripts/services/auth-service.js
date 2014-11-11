@@ -14,9 +14,7 @@ app.factory('AuthService', function($firebase, $firebaseSimpleLogin, $rootScope)
   };
 
   exports.login = function() {
-    return authClient.$login('github', {
-      preferRedirect: true
-    });
+    return authClient.$login('github');
   };
 
   exports.logout = function() {
