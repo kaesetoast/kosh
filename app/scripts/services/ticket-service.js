@@ -6,7 +6,7 @@ app.factory('TicketService', function(StorageService){
 
   var exports = {};
 
-  exports.get = function(id) {
+  exports.get = function() {
     StorageService.loginWithGitHub();
     // return getSync(id).$asObject();
   };
