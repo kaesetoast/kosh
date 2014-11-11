@@ -9,7 +9,7 @@
         <li><a ng-href="#/tickets">Tickets</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li ng-show="loggedIn()"><a>{{user.username}}</a></li>
+        <li ng-show="loggedIn()"><a class="user"><img src="{{user.thirdPartyUserData.avatar_url}}" alt="" class="avatar"></a></li>
         <li ng-show="loggedIn()"><a ng-click="logout()">Logout</a></li>
         <li ng-hide="loggedIn()"><a ng-click="login()">Login</a></li>
       </ul>

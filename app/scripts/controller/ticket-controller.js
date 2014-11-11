@@ -1,6 +1,6 @@
 /* global app */
 
-app.controller('TicketController', function ($scope, $routeParams, TicketService, UserService, AuthService) {
+app.controller('TicketController', function ($scope, $routeParams, TicketService, UserService) {
 
   'use strict';
 
@@ -9,6 +9,8 @@ app.controller('TicketController', function ($scope, $routeParams, TicketService
   } else {
     $scope.tickets = TicketService.get();
   }
+
+  $scope.users = UserService.get();
 
   $scope.addTicket = function() {
     $scope.newTicket.created = new Date().toDateString();
