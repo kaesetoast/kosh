@@ -1,4 +1,4 @@
-<div class="row" ng-controller="TicketsController">
+<div class="row">
   <div class="col-sm-6 col-md-4">
     <form ng-submit="addTicket()">
       <div class="form-group">
@@ -19,7 +19,7 @@
     <div class="thumbnail">
       <div class="caption">
         <h3><a href="/#/tickets/{{id}}">{{ticket.title}}</a></h3>
-        <p>{{ticket.created}}</p>
+        <p>{{ticket.created}}, by {{ticket.author}}</p>
         <p>{{ticket.description}}</p>
         <button class="btn btn-danger" ng-click="removeTicket(id)">Delete</button>
       </div>

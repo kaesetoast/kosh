@@ -1,9 +1,19 @@
 /* global app */
 
-'use strict';
+app.controller('TicketController', function ($scope, TicketService) {
 
-app.controller('TicketController', function ($scope, $routeParams, TicketService) {
+  'use strict';
 
-  $scope.ticket = TicketService.get($routeParams.ticketId);
+  $scope.tickets = TicketService.get();
+
+  $scope.addTicket = function() {
+    $scope.newTicket.created = new Date().toDateString();
+    TicketService.add($scope.newTicket);
+    $scope.newTicket = {};
+  };
+
+  $scope.removeTicket = function(id) {
+    TicketService.remove(id);
+  };
 
 });

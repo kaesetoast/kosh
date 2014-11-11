@@ -20,19 +20,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav class="navbar navbar-static-top navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Kosh</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
-          <ul class="nav navbar-nav">
-            <li class="active"><a ng-href="#/tickets">Tickets</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <div ng-include="'templates/navbar.html'"></div>
 
     <div class="container" ng-view></div>
 
@@ -61,9 +49,10 @@
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/kosh.js"></script>
     <script src="scripts/controller/ticket-controller.js"></script>
-    <script src="scripts/controller/tickets-controller.js"></script>
+    <script src="scripts/controller/navbar-controller.js"></script>
+    <script src="scripts/controller/login-controller.js"></script>
     <script src="scripts/services/ticket-service.js"></script>
-    <script src="scripts/services/storage-service.js"></script>
+    <script src="scripts/services/auth-service.js"></script>
     <!-- inject:partials -->
     <!-- endinject -->
     <!-- endbuild -->
