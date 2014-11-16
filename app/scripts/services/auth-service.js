@@ -1,7 +1,7 @@
 /* global app */
 /* global Firebase */
 
-app.factory('AuthService', function($firebase, $firebaseSimpleLogin, $rootScope, USER_ROLES, SessionService){
+app.factory('AuthService', function($firebase, $firebaseSimpleLogin, $rootScope, USER_ROLES, SessionService, $location){
 
   'use strict';
 
@@ -52,6 +52,8 @@ app.factory('AuthService', function($firebase, $firebaseSimpleLogin, $rootScope,
   $rootScope.$on('$firebaseSimpleLogin:logout', function() {
     angular.copy({}, exports.user);
     SessionService.destroy();
+    // Take user back to login
+    $location.path('/login');
   });
 
   return exports;
