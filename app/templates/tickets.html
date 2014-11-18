@@ -12,7 +12,7 @@
       <div class="form-group">
         <label for="assigned-to">assigned to</label>
         <select name="assigned-to" id="assigned-to" class="form-control" ng-model="newTicket.assignee">
-          <option ng-repeat="user in users" value="{{user.uid}}">{{user.displayName}}</option>
+          <option ng-repeat="user in users" value="{{user.id}}">{{user.displayName}}</option>
         </select>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
@@ -25,7 +25,7 @@
     <div class="thumbnail">
       <div class="caption">
         <h3><a href="/#/tickets/{{id}}">{{ticket.title}}</a></h3>
-        <p>{{ticket.created}}, by {{ticket.author}}</p>
+        <p>{{ticket.created}}, by {{users[ticket.author].displayName}}</p>
         <p>{{ticket.description}}</p>
         <button class="btn btn-danger" ng-click="removeTicket(id)">Delete</button>
       </div>

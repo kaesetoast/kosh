@@ -1,17 +1,11 @@
 /* global app */
-/* global Firebase */
 
-app.factory('AuthService', function($firebase, $firebaseSimpleLogin, $rootScope, USER_ROLES, SessionService, $location){
+app.factory('AuthService', function(StorageService, $rootScope, USER_ROLES, $location, UserService){
 
   'use strict';
 
   var exports = {},
-      ref = new Firebase('https://sizzling-inferno-7416.firebaseio.com'),
-      authClient = $firebaseSimpleLogin(ref);
-
-  exports.getCurrentUser = function() {
-    return authClient.$getCurrentUser();
-  };
+      authClient = StorageService.getAuthClient();
 
   exports.login = function() {
     return authClient.$login('github');
@@ -22,12 +16,18 @@ app.factory('AuthService', function($firebase, $firebaseSimpleLogin, $rootScope,
   };
 
   exports.loggedIn = function() {
-    return !!SessionService.userId;
+    return !!exports.user.uid;
   };
 
-  exports.getRef = function() {
-    return ref;
+  exports.getCurrentUser = function() {
+    if (exports.loggedIn()) {
+      return UserService.get(exports.user.uid);
+    } else {
+      return {};
+    }
   };
+
+  exports.user = {};
 
   exports.isAuthorized = function(accessRoles) {
     // TODO: This check should be more sophisticated
@@ -42,16 +42,15 @@ app.factory('AuthService', function($firebase, $firebaseSimpleLogin, $rootScope,
     }
   };
 
-  exports.user = {};
-
   $rootScope.$on('$firebaseSimpleLogin:login', function(e, user) {
     angular.copy(user, exports.user);
-    SessionService.create(new Date(), user.uid);
+    if (!UserService.exists(user.uid)) {
+      UserService.createFromGitHub(exports.user);
+    }
   });
 
   $rootScope.$on('$firebaseSimpleLogin:logout', function() {
     angular.copy({}, exports.user);
-    SessionService.destroy();
     // Take user back to login
     $location.path('/login');
   });

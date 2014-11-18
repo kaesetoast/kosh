@@ -26,11 +26,6 @@ app.config(function($routeProvider, USER_ROLES) {
     .when('/login', {
       templateUrl: 'templates/login.html',
       controller: 'LoginController',
-      resolve: {
-        user: function(AuthService) {
-          return AuthService.getCurrentUser();
-        }
-      }
     })
     .otherwise({
       redirectTo: '/tickets'

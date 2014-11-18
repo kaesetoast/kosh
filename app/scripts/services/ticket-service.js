@@ -1,11 +1,11 @@
 /* global app */
 
-app.factory('TicketService', function($firebase, AuthService){
+app.factory('TicketService', function($firebase, StorageService){
 
   'use strict';
 
   var exports = {},
-      ref = AuthService.getRef();
+      ref = StorageService.getRef();
 
   exports.get = function(id) {
     if (typeof id === 'undefined') {
@@ -20,7 +20,6 @@ app.factory('TicketService', function($firebase, AuthService){
   };
 
   exports.add = function(ticket) {
-    ticket.author = AuthService.user.uid;
     $firebase(ref.child('tickets')).$push(ticket);
   };
 

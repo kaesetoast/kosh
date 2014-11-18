@@ -15,7 +15,7 @@
     <script src="bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-controller="ApplicationController">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -48,13 +48,14 @@
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/kosh.js"></script>
+    <script src="scripts/controller/application-controller.js"></script>
     <script src="scripts/controller/ticket-controller.js"></script>
     <script src="scripts/controller/navbar-controller.js"></script>
     <script src="scripts/controller/login-controller.js"></script>
     <script src="scripts/services/ticket-service.js"></script>
     <script src="scripts/services/auth-service.js"></script>
     <script src="scripts/services/user-service.js"></script>
-    <script src="scripts/services/session-service.js"></script>
+    <script src="scripts/services/storage-service.js"></script>
     <!-- inject:partials -->
     <!-- endinject -->
     <!-- endbuild -->

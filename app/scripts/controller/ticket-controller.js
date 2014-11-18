@@ -14,6 +14,7 @@ app.controller('TicketController', function ($scope, $routeParams, TicketService
 
   $scope.addTicket = function() {
     $scope.newTicket.created = new Date().toDateString();
+    $scope.newTicket.author = $scope.currentUser.uid;
     TicketService.add($scope.newTicket);
     $scope.newTicket = {};
   };
