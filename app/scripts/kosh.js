@@ -7,24 +7,25 @@ app.constant('USER_ROLES', {
   LOGGED_IN: 'LOGGED_IN'
 });
 
-app.config(function($routeProvider, USER_ROLES) {
+app.config(function($routeProvider, $locationProvider, USER_ROLES) {
+  $locationProvider.html5Mode({requireBase:true});
   $routeProvider
     .when('/tickets', {
-      templateUrl: 'templates/tickets.html',
+      templateUrl: '/templates/tickets.html',
       controller: 'TicketController',
       data: {
         accessRoles: [USER_ROLES.LOGGED_IN]
       }
     })
     .when('/tickets/:ticketId', {
-      templateUrl: 'templates/ticket.html',
+      templateUrl: '/templates/ticket.html',
       controller: 'TicketController',
       data: {
         accessRoles: [USER_ROLES.LOGGED_IN]
       }
     })
     .when('/login', {
-      templateUrl: 'templates/login.html',
+      templateUrl: '/templates/login.html',
       controller: 'LoginController',
     })
     .otherwise({
