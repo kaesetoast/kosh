@@ -1,6 +1,6 @@
-/* global app */
+/* global core */
 
-app.controller('LoginController', function ($scope, $location, AuthService) {
+core.controller('LoginController', function ($scope, $location, AuthService) {
 
   'use strict';
 

@@ -1,6 +1,6 @@
-/* global app */
+/* global ticket */
 
-app.factory('TicketService', function($firebase, StorageService){
+ticket.factory('TicketService', function($firebase, StorageService){
 
   'use strict';
 

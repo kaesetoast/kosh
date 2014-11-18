@@ -1,6 +1,6 @@
-/* global app */
+/* global core */
 
-app.factory('AuthService', function(StorageService, $rootScope, USER_ROLES, $location, UserService){
+core.factory('AuthService', function(StorageService, $rootScope, USER_ROLES, $location, UserService){
 
   'use strict';
 

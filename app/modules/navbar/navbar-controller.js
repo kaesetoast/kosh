@@ -1,6 +1,6 @@
 /* global app */
 
-app.controller('NavbarController', function ($scope, AuthService) {
+navbar.controller('NavbarController', function ($scope, AuthService) {
 
   'use strict';
 

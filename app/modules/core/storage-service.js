@@ -1,7 +1,7 @@
-/* global app */
+/* global core */
 /* global Firebase */
 
-app.factory('StorageService', function($firebase, $firebaseSimpleLogin){
+core.factory('StorageService', function($firebase, $firebaseSimpleLogin){
 
   'use strict';
 

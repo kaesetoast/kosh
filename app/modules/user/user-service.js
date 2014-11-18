@@ -1,6 +1,6 @@
-/* global app */
+/* global user */
 
-app.factory('UserService', function($firebase, StorageService){
+user.factory('UserService', function($firebase, StorageService){
 
   'use strict';
 

@@ -1,6 +1,6 @@
-/* global app */
+/* global ticket */
 
-app.controller('TicketController', function ($scope, $routeParams, TicketService, UserService) {
+ticket.controller('TicketController', function ($scope, $routeParams, TicketService, UserService) {
 
   'use strict';
 
