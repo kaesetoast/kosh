@@ -10,5 +10,5 @@ var app = angular.module('kosh', [
 ]);
 
 app.config(function($locationProvider) {
-  $locationProvider.html5Mode({requireBase:true});
+  // $locationProvider.html5Mode({requireBase:true});
 });

@@ -8,7 +8,6 @@ var httpProxy = require('http-proxy');
 /* This configuration allow you to configure browser sync to proxy your backend */
 var proxyTarget = 'http://server/context/'; // The location of your backend
 var proxyApiPrefix = 'api'; // The element in the URL which differentiate between API request and static file request
-var modRewrite = require('connect-modrewrite');
 
 var proxy = httpProxy.createProxyServer({
   target: proxyTarget
@@ -30,10 +29,7 @@ function browserSyncInit(baseDir, files, browser) {
     server: {
       baseDir: baseDir,
       middleware: [
-        proxyMiddleware,
-        modRewrite([
-          '!\\.html|\\.js|\\.css|\\.png$ /index.html [L]'
-        ])
+        proxyMiddleware
       ]
     },
     browser: browser
