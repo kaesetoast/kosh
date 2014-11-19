@@ -7,7 +7,10 @@
     "bootstrap-sass-official": "3.1.x",
     "firebase": "1.0.x",
     "angularfire": "0.8.x",
-    "angular-route": "~1.2.x"
+    "angular-route": "~1.2.x",
+    "angular-nl2br": "git@github.com:kaesetoast/angular-nl2br.git",
+    "angular-sanitize": "1.2.26",
+    "angular-bootstrap": "~0.12.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.x"
