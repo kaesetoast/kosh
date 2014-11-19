@@ -17,10 +17,13 @@ core.config(function($routeProvider) {
       redirectTo: '/tickets'
     });
 })
-.run(function($rootScope, AuthService, USER_ROLES, $location) {
+.run(function($rootScope, AuthService, $location) {
   $rootScope.$on('$routeChangeStart', function(e, next) {
-    if (typeof next.data !== 'undefined' && !AuthService.isAuthorized(next.data.accessRoles)) {
-      $location.path('/login');
+    // if there are restrictions for the desired url, check them
+    if (typeof next.data !== 'undefined') {
+      AuthService.isAuthorized(next.data.accessRoles).catch(function() {
+        $location.path('/login');
+      });
     }
   });
 });
