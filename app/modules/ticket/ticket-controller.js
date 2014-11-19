@@ -12,6 +12,7 @@ ticket.controller('TicketController',
   }
 
   $scope.users = UserService.get();
+  $scope.newTicket = {};
 
   $scope.addTicket = function() {
     $scope.newTicket.created = new Date().toDateString();
@@ -26,5 +27,16 @@ ticket.controller('TicketController',
       $location.path('/tickets');
     });
   };
+
+  $scope.today = function() {
+    $scope.newTicket.dueto = new Date();
+  };
+  $scope.today();
+
+  $scope.clear = function () {
+    $scope.newTicket.dueto = null;
+  };
+
+  $scope.minDate = new Date();
 
 });
