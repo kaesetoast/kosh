@@ -31,20 +31,10 @@
     </thead>
     <tbody>
       <tr ng-repeat="(id, ticket) in tickets">
-        <td>{{ticket.title}}</td>
+        <td><a href="#/tickets/{{id}}">{{ticket.title}}</a></td>
         <td>{{users[ticket.author].displayName}}</td>
         <td>{{users[ticket.assignee].displayName}}</td>
       </tr>
     </tbody>
   </table>
-  <div class="col-sm-6 col-md-4" ng-repeat="(id, ticket) in tickets">
-    <div class="thumbnail">
-      <div class="caption">
-        <h3><a href="#/tickets/{{id}}">{{ticket.title}}</a></h3>
-        <p>{{ticket.created}}, by {{users[ticket.author].displayName}}</p>
-        <p>{{ticket.description}}</p>
-        <button class="btn btn-danger" ng-click="removeTicket(id)">Delete</button>
-      </div>
-    </div>
-  </div>
 </div>

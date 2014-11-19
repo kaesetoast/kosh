@@ -1,6 +1,7 @@
 /* global ticket */
 
-ticket.controller('TicketController', function ($scope, $routeParams, TicketService, UserService) {
+ticket.controller('TicketController',
+  function ($scope, $routeParams, TicketService, UserService, $location, ModalService) {
 
   'use strict';
 
@@ -20,7 +21,10 @@ ticket.controller('TicketController', function ($scope, $routeParams, TicketServ
   };
 
   $scope.removeTicket = function(id) {
-    TicketService.remove(id);
+    ModalService.confirm('Are you sure you want to delete this ticket?', function() {
+      TicketService.remove(id);
+      $location.path('/tickets');
+    });
   };
 
 });

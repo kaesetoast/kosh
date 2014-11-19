@@ -2,7 +2,7 @@
 
 'use strict';
 
-var ticket = angular.module('kosh.ticket', [])
+var ticket = angular.module('kosh.ticket', ['nl2br', 'ngSanitize'])
   .config(function($routeProvider, USER_ROLES) {
     $routeProvider
       .when('/tickets', {
