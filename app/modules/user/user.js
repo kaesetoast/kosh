@@ -1,3 +1,3 @@
-/* global app */
+/* exported user */
 
 var user = angular.module('kosh.user', []);

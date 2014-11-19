@@ -1,4 +1,4 @@
-/* global app */
+/* global navbar */
 
 navbar.controller('NavbarController', function ($scope, AuthService) {
 

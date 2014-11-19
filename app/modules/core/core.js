@@ -1,4 +1,4 @@
-/* global app */
+'use strict';
 
 var core = angular.module('kosh.core', []);
 
@@ -7,7 +7,7 @@ core.constant('USER_ROLES', {
   LOGGED_IN: 'LOGGED_IN'
 });
 
-core.config(function($routeProvider, USER_ROLES) {
+core.config(function($routeProvider) {
   $routeProvider
     .when('/login', {
       templateUrl: '/modules/core/login.html',

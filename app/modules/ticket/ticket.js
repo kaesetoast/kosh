@@ -1,4 +1,6 @@
-/* global app */
+/* exported ticket */
+
+'use strict';
 
 var ticket = angular.module('kosh.ticket', [])
   .config(function($routeProvider, USER_ROLES) {
@@ -16,5 +18,5 @@ var ticket = angular.module('kosh.ticket', [])
         data: {
           accessRoles: [USER_ROLES.LOGGED_IN]
         }
-      })
+      });
   });
