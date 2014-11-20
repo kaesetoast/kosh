@@ -28,6 +28,10 @@ ticket.controller('TicketController',
     });
   };
 
+  $scope.selectAssignee = function($item) {
+    $scope.newTicket.assignee = $item.id;
+  };
+
   $scope.today = function() {
     $scope.newTicket.dueto = new Date();
   };

@@ -9,7 +9,7 @@ user.factory('UserService', function($firebase, StorageService){
 
   exports.get = function(id) {
     if (typeof id === 'undefined') {
-      return $firebase(ref.child('users')).$asObject();
+      return $firebase(ref.child('users')).$asArray();
     } else {
       return $firebase(ref.child('users').child(id)).$asObject();
     }
