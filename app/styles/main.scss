@@ -36,3 +36,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
   display: inline-block;
   margin-left: 10px;
 }
+
+.alert-stack {
+  z-index: 99999;
+  position: fixed;
+  right: 0;
+  opacity: .7;
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -1,6 +1,6 @@
 /* global ticket */
 
-ticket.factory('TicketService', function($firebase, StorageService){
+ticket.factory('TicketService', function($firebase, StorageService, AlertService){
 
   'use strict';
 
@@ -17,10 +17,12 @@ ticket.factory('TicketService', function($firebase, StorageService){
 
   exports.remove = function(id) {
     $firebase(ref.child('tickets')).$remove(id);
+    AlertService.add('Ticket successfully removed', 'success');
   };
 
   exports.add = function(ticket) {
     $firebase(ref.child('tickets')).$push(ticket);
+    AlertService.add('New Ticket successfully added', 'success');
   };
 
   return exports;

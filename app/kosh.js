@@ -7,6 +7,7 @@ var app = angular.module('kosh', [
   'kosh.core',
   'kosh.navbar',
   'kosh.modals',
+  'kosh.alerts',
   'kosh.user',
   'kosh.ticket'
 ]);

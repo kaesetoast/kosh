@@ -1,0 +1,5 @@
+<div class="container alert-container">
+  <div class="alert-stack" ng-controller="AlertController">
+    <alert ng-repeat="alert in alerts track by $index" type="danger">{{alert.msg}}</alert>
+  </div>
+</div>
