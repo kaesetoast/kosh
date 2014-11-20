@@ -10,7 +10,6 @@ core.controller('LoginController', function ($scope, $location, AuthService) {
 
   $scope.login = function() {
     AuthService.login().then(function(user){
-      $scope.setCurrentUser(user);
       $location.path('/tickets');
     });
   };

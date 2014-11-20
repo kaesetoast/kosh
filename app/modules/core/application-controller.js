@@ -12,4 +12,8 @@ core.controller('ApplicationController', function ($scope, AuthService) {
     $scope.currentUser = user;
   };
 
+  $scope.$on('$firebaseSimpleLogin:login', function(e, user) {
+    $scope.setCurrentUser(user);
+  });
+
 });
