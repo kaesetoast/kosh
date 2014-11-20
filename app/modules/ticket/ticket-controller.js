@@ -19,6 +19,7 @@ ticket.controller('TicketController',
     $scope.newTicket.author = $scope.currentUser.uid;
     TicketService.add($scope.newTicket);
     $scope.newTicket = {};
+    $location.path('/tickets');
   };
 
   $scope.removeTicket = function(id) {

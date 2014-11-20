@@ -12,6 +12,13 @@ var ticket = angular.module('kosh.ticket', ['nl2br', 'ngSanitize'])
           accessRoles: [USER_ROLES.LOGGED_IN]
         }
       })
+      .when('/tickets/new', {
+        templateUrl: '/modules/ticket/new.html',
+        controller: 'TicketController',
+        data: {
+          accessRoles: [USER_ROLES.LOGGED_IN]
+        }
+      })
       .when('/tickets/:ticketId', {
         templateUrl: '/modules/ticket/ticket.html',
         controller: 'TicketController',
