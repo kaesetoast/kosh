@@ -28,6 +28,10 @@ ticket.controller('TicketController',
     blocking: 'danger'
   };
 
+  $scope.setPriority = function(priority) {
+    $scope.ticket.priority = priority;
+  };
+
   $scope.addTicket = function() {
     $scope.newTicket.created = new Date().toDateString();
     $scope.newTicket.author = $scope.currentUser.id;
