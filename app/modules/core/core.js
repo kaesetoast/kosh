@@ -10,7 +10,7 @@ core.constant('USER_ROLES', {
 core.config(function($routeProvider) {
   $routeProvider
     .when('/login', {
-      templateUrl: '/modules/core/login.html',
+      templateUrl: '/modules/core/views/login.html',
       controller: 'LoginController',
     })
     .otherwise({

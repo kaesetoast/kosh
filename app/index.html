@@ -20,8 +20,8 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ng-include="'modules/navbar/navbar.html'"></div>
-    <div ng-include="'modules/alerts/alerts.html'"></div>
+    <div ng-include="'modules/navbar/views/navbar.html'"></div>
+    <div ng-include="'modules/alerts/views/alerts.html'"></div>
 
     <div class="container" ng-view></div>
 
@@ -54,28 +54,28 @@
     <script src="kosh.js"></script>
 
     <script src="modules/core/core.js"></script>
-    <script src="modules/core/application-controller.js"></script>
-    <script src="modules/core/auth-service.js"></script>
-    <script src="modules/core/login-controller.js"></script>
-    <script src="modules/core/storage-service.js"></script>
+    <script src="modules/core/controllers/application-controller.js"></script>
+    <script src="modules/core/services/auth-service.js"></script>
+    <script src="modules/core/controllers/login-controller.js"></script>
+    <script src="modules/core/services/storage-service.js"></script>
 
     <script src="modules/navbar/navbar.js"></script>
-    <script src="modules/navbar/navbar-controller.js"></script>
+    <script src="modules/navbar/controllers/navbar-controller.js"></script>
 
     <script src="modules/ticket/ticket.js"></script>
-    <script src="modules/ticket/ticket-controller.js"></script>
-    <script src="modules/ticket/ticket-service.js"></script>
+    <script src="modules/ticket/controllers/ticket-controller.js"></script>
+    <script src="modules/ticket/services/ticket-service.js"></script>
 
     <script src="modules/user/user.js"></script>
-    <script src="modules/user/user-service.js"></script>
+    <script src="modules/user/services/user-service.js"></script>
 
     <script src="modules/modals/modals.js"></script>
-    <script src="modules/modals/modal-controller.js"></script>
-    <script src="modules/modals/modal-service.js"></script>
+    <script src="modules/modals/controllers/modal-controller.js"></script>
+    <script src="modules/modals/services/modal-service.js"></script>
 
     <script src="modules/alerts/alerts.js"></script>
-    <script src="modules/alerts/alert-controller.js"></script>
-    <script src="modules/alerts/alert-service.js"></script>
+    <script src="modules/alerts/controllers/alert-controller.js"></script>
+    <script src="modules/alerts/services/alert-service.js"></script>
     <!-- inject:partials -->
     <!-- endinject -->
     <!-- endbuild -->
