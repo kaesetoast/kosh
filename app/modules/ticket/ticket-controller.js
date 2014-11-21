@@ -14,9 +14,23 @@ ticket.controller('TicketController',
   $scope.users = UserService.get();
   $scope.newTicket = {};
 
+  $scope.priorities = [
+    'minor',
+    'major',
+    'critical',
+    'blocking'
+  ];
+
+  $scope.labels = {
+    minor: 'default',
+    major: 'warning',
+    critical: 'danger',
+    blocking: 'danger'
+  };
+
   $scope.addTicket = function() {
     $scope.newTicket.created = new Date().toDateString();
-    $scope.newTicket.author = $scope.currentUser.uid;
+    $scope.newTicket.author = $scope.currentUser.id;
     TicketService.add($scope.newTicket);
     $scope.newTicket = {};
     $location.path('/tickets');

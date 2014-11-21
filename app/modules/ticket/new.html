@@ -22,6 +22,10 @@
             <label for="due-to">Due to</label>
             <input type="text" class="form-control" datepicker-popup="dd.mm.yyyy" show-button-bar="false" ng-model="newTicket.dueto" is-open="dpopen" min-date="minDate" ng-required="true" close-text="Close" ng-click="dpopen = true">
           </div>
+          <div class="form-group">
+            <label for="priority">Priority</label>
+            <select class="form-control" name=priority"" id="priority" ng-model="newTicket.priority" ng-options="priority for priority in priorities"></select>
+          </div>
         </div>
         <div class="panel-footer clearfix">
           <div class="btn-group pull-right" role="group">
