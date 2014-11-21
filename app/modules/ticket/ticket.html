@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="panel panel-primary">
+    <div class="panel panel-{{labels[ticket.priority]}}">
       <div class="panel-heading">
-        <h3 class="panel-title">{{ticket.title}} <span class="label label-{{labels[ticket.priority]}}">{{ticket.priority}}</span></h3>
+        <h3 class="panel-title">{{ticket.title}}</h3>
       </div>
       <div class="panel-body" ng-bind-html="ticket.description | nl2br"></div>
       <div class="panel-footer clearfix">

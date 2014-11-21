@@ -23,9 +23,9 @@ ticket.controller('TicketController',
 
   $scope.labels = {
     minor: 'default',
-    major: 'warning',
+    major: 'primary',
     critical: 'danger',
-    blocking: 'danger'
+    blocking: 'warning'
   };
 
   $scope.setPriority = function(priority) {
