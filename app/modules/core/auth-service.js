@@ -1,6 +1,6 @@
 /* global core */
 
-core.factory('AuthService', function(StorageService, $rootScope, USER_ROLES, $location, UserService, $q){
+core.factory('AuthService', function(StorageService, $rootScope, USER_ROLES, $location, $q){
 
   'use strict';
 
@@ -19,14 +19,6 @@ core.factory('AuthService', function(StorageService, $rootScope, USER_ROLES, $lo
 
   exports.loggedIn = function() {
     return !!exports.user.uid;
-  };
-
-  exports.getCurrentUser = function() {
-    if (exports.loggedIn()) {
-      return UserService.get(exports.user.uid);
-    } else {
-      return {};
-    }
   };
 
   exports.user = {};
@@ -54,9 +46,6 @@ core.factory('AuthService', function(StorageService, $rootScope, USER_ROLES, $lo
 
   $rootScope.$on('$firebaseSimpleLogin:login', function(e, user) {
     angular.copy(user, exports.user);
-    if (!UserService.exists(user.uid)) {
-      UserService.createFromGitHub(exports.user);
-    }
   });
 
   $rootScope.$on('$firebaseSimpleLogin:logout', function() {

@@ -1,6 +1,6 @@
 /* global core */
 
-core.controller('ApplicationController', function ($scope, AuthService) {
+core.controller('ApplicationController', function ($scope, AuthService, UserService) {
 
   'use strict';
 
@@ -13,7 +13,10 @@ core.controller('ApplicationController', function ($scope, AuthService) {
   };
 
   $scope.$on('$firebaseSimpleLogin:login', function(e, user) {
-    $scope.setCurrentUser(user);
+    if (!UserService.exists(user.uid)) {
+      UserService.createFromGitHub(user);
+    }
+    $scope.setCurrentUser(UserService.get(user.uid));
   });
 
 });
