@@ -4,10 +4,10 @@ ticket.factory('TicketService', function($firebase, StorageService, AlertService
 
   'use strict';
 
-  var exports = {},
+  var TicketService = {},
       ref = StorageService.getRef();
 
-  exports.get = function(id) {
+  TicketService.get = function(id) {
     if (typeof id === 'undefined') {
       return $firebase(ref.child('tickets')).$asObject();
     } else {
@@ -15,15 +15,15 @@ ticket.factory('TicketService', function($firebase, StorageService, AlertService
     }
   };
 
-  exports.remove = function(id) {
+  TicketService.remove = function(id) {
     $firebase(ref.child('tickets')).$remove(id);
     AlertService.add('Ticket successfully removed', 'success');
   };
 
-  exports.add = function(ticket) {
+  TicketService.add = function(ticket) {
     $firebase(ref.child('tickets')).$push(ticket);
     AlertService.add('New Ticket successfully added', 'success');
   };
 
-  return exports;
+  return TicketService;
 });
