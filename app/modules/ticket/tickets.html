@@ -7,6 +7,7 @@
         <th>Title</th>
         <th>Reporter</th>
         <th>Assignee</th>
+        <th>Priority</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
         <td><a href="#/tickets/{{id}}">{{ticket.title}}</a></td>
         <td>{{users.$getRecord(ticket.author).displayName}}</td>
         <td>{{users.$getRecord(ticket.assignee).displayName}}</td>
+        <td><span class="label label-{{labels[ticket.priority]}}">{{ticket.priority}}</span></td>
       </tr>
     </tbody>
   </table>

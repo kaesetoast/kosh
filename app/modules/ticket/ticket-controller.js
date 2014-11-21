@@ -6,7 +6,7 @@ ticket.controller('TicketController',
   'use strict';
 
   if ($routeParams.ticketId) {
-    $scope.ticket = TicketService.get($routeParams.ticketId);
+    TicketService.get($routeParams.ticketId).$bindTo($scope, 'ticket');
   } else {
     $scope.tickets = TicketService.get();
   }
