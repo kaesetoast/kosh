@@ -5,18 +5,19 @@ describe('auth-service', function () {
   var AuthService,
       StorageService,
       StorageServiceMock,
-      loginMock = jasmine.createSpyObj('authClient', [
-        '$login'
+      authClientMock = jasmine.createSpyObj('authClient', [
+        '$login',
+        '$logout'
       ]);
 
   beforeEach(module('kosh'));
 
-  describe('test login', function() {
+  describe('test login and logout', function() {
 
     beforeEach(module(function($provide) {
       StorageServiceMock = {
         getAuthClient: function() {
-          return loginMock;
+          return authClientMock;
         }
       };
       $provide.value('StorageService', StorageServiceMock);
@@ -28,9 +29,13 @@ describe('auth-service', function () {
     }));
 
     it('should call $login on the authClient object', function() {
-      spyOn(StorageServiceMock, 'getAuthClient').andCallThrough();
       AuthService.login();
-      expect(loginMock.$login).toHaveBeenCalledWith('github', {rememberMe: true});
+      expect(authClientMock.$login).toHaveBeenCalledWith('github', {rememberMe: true});
+    });
+
+    it('should call $logout on the authClient object', function() {
+      AuthService.logout();
+      expect(authClientMock.$logout).toHaveBeenCalled();
     });
 
   });
