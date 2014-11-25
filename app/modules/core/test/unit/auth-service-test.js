@@ -9,7 +9,10 @@ describe('auth-service', function () {
         $login: function(){},
         $logout: function(){},
         $getCurrentUser: function(){}
-      };
+      },
+      locationProviderMock = jasmine.createSpyObj('$location', [
+        'path'
+      ]);
 
   beforeEach(module('kosh'));
 
@@ -20,6 +23,7 @@ describe('auth-service', function () {
       }
     };
     $provide.value('StorageService', StorageServiceMock);
+    $provide.value('$location', locationProviderMock);
   }));
 
   beforeEach(inject(function(_AuthService_, _StorageService_) {
@@ -110,6 +114,29 @@ describe('auth-service', function () {
         $rootScope.$digest();
         expect(thenHandler).toHaveBeenCalled();
       });
+
+    });
+
+    describe('test login and logout events', function () {
+
+      var loggedInUser = {
+        uid: 123
+      };
+
+      it('should set user object on login event', function() {
+        $rootScope.$broadcast('$firebaseSimpleLogin:login', loggedInUser);
+        expect(AuthService.user).toEqual(loggedInUser);
+      });
+
+      it('should unset user object on logout event', function() {
+        $rootScope.$broadcast('$firebaseSimpleLogin:logout');
+        expect(AuthService.user).toEqual({});
+      })
+
+      it('should redirect to /login on logout event', inject(function($location) {
+        $rootScope.$broadcast('$firebaseSimpleLogin:logout');
+        expect($location.path).toHaveBeenCalledWith('/login');
+      }));
 
     });
 
