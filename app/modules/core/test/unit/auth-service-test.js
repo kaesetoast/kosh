@@ -38,6 +38,18 @@ describe('auth-service', function () {
       expect(authClientMock.$logout).toHaveBeenCalled();
     });
 
+    it('should tell that user is logged in when uid is present', function() {
+      AuthService.user = {
+        uid: 123
+      };
+      expect(AuthService.loggedIn()).toBe(true);
+    });
+
+    it('should tell that user is logged out when uid is not present', function() {
+      AuthService.user = {};
+      expect(AuthService.loggedIn()).toBe(false);
+    });
+
   });
 
 });
