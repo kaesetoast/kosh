@@ -91,6 +91,19 @@ describe('auth-service', function () {
 
     });
 
+    describe('test rules that allow guest users', function () {
+
+      it('should grant access if user is logged in', function() {
+        var deferred = $q.defer(),
+            thenHandler = jasmine.createSpy('thenHandler');
+        AuthService.isAuthorized(USER_ROLES.GUEST).then(thenHandler);
+        deferred.resolve('some user');
+        $rootScope.$digest();
+        expect(thenHandler).toHaveBeenCalled();
+      });
+
+    });
+
   });
 
 });
