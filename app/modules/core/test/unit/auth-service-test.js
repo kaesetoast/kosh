@@ -102,6 +102,15 @@ describe('auth-service', function () {
         expect(thenHandler).toHaveBeenCalled();
       });
 
+      it('should grant access if user is not logged in', function() {
+        var deferred = $q.defer(),
+            thenHandler = jasmine.createSpy('thenHandler');
+        AuthService.isAuthorized(USER_ROLES.GUEST).then(thenHandler);
+        deferred.resolve(null);
+        $rootScope.$digest();
+        expect(thenHandler).toHaveBeenCalled();
+      });
+
     });
 
   });
