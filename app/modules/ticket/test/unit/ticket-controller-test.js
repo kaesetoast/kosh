@@ -26,6 +26,15 @@ describe('ticket-controller', function () {
       expect(scope.priorities).toBeDefined();
     });
 
+    it('should provide a set of labels', function () {
+      expect(scope.labels).toBeDefined();
+    });
+
+    it('should provide a minDate property', function () {
+      expect(scope.minDate).toBeDefined();
+      expect(typeof scope.minDate).toEqual(typeof new Date());
+    });
+
   });
 
   describe('single ticket state', function () {
