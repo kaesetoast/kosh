@@ -11,7 +11,7 @@ describe('ticket-controller', function () {
   }));
 
   describe('basics', function () {
-    
+
     beforeEach(inject(function($controller) {
       $controller('TicketController', {
         $scope: scope
@@ -56,10 +56,17 @@ describe('ticket-controller', function () {
         TicketService: TicketServiceMock
       });
 
+      scope.ticket = {};
+
     }));
 
     it('should fetch single ticket if ticketId is passed', function () {
       expect(TicketServiceMock.get).toHaveBeenCalled();
+    });
+
+    it('should set priority correctly', function () {
+      scope.setPriority('critical');
+      expect(scope.ticket.priority).toEqual('critical');
     });
 
   });
